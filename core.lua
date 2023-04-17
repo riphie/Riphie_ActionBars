@@ -172,7 +172,7 @@ function L:GetFlyoutParent()
     local parent = SpellFlyout:GetParent()
     local parent_name = parent:GetName() or ""
 
-    if string_find(parent_name, "([Bb]utton)%d") then
+    if string_find ~= nil and string_find(parent_name, "([Bb]utton)%d") then
       local index = (function(array, value)
         for i, v in ipairs(array) do
           if v == value then
@@ -198,7 +198,10 @@ function L:HandleFlyoutShow()
   end
 
   L.bypass = L:GetFlyoutParent()
-  L.bars[L.bypass]:SetAlpha(1)
+
+  if L.bars[L.bypass] ~= nil then
+    L.bars[L.bypass]:SetAlpha(1)
+  end
 end
 
 function L:HandleFlyoutHide()
