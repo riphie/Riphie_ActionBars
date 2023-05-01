@@ -24,6 +24,10 @@ L.cfg = {
 
 local _, class = UnitClass("player")
 
+if class == "DEMONHUNTER" then
+  L.cfg.enable = true
+end
+
 if class == "EVOKER" then
   L.cfg.enable = true
 end
