@@ -1,8 +1,5 @@
 local A, L = ...
 
-local LibStub = LibStub
-local LSM = LibStub("LibSharedMedia-3.0")
-
 L.cfg = {
   enable = false,
 
@@ -29,6 +26,10 @@ if class == "DEMONHUNTER" then
 end
 
 if class == "EVOKER" then
+  L.cfg.enable = true
+end
+
+if class == "SHAMAN" then
   L.cfg.enable = true
 end
 
