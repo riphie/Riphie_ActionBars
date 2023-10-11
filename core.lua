@@ -240,9 +240,9 @@ function L:OnInit()
 end
 
 function L:OnEnable()
-  L.eventFrame:RegisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
-  L.eventFrame:RegisterEvent("ACTIONBAR_SHOWGRID")
-  L.eventFrame:RegisterEvent("ACTIONBAR_HIDEGRID")
+  L.eventFrame:RegisterEvent "PLAYER_MOUNT_DISPLAY_CHANGED"
+  L.eventFrame:RegisterEvent "ACTIONBAR_SHOWGRID"
+  L.eventFrame:RegisterEvent "ACTIONBAR_HIDEGRID"
 
   QuickKeybindFrame:HookScript("OnShow", function()
     L:ShowBars()
@@ -275,7 +275,7 @@ function L:OnEnable()
   end)
 end
 
-L.eventFrame:RegisterEvent("ADDON_LOADED")
+L.eventFrame:RegisterEvent "ADDON_LOADED"
 L.eventFrame:SetScript("OnEvent", function(self, event, ...)
   if event == "ADDON_LOADED" then
     if cfg.enable then

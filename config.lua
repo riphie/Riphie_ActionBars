@@ -19,7 +19,7 @@ L.cfg = {
   },
 }
 
-local _, class = UnitClass("player")
+local _, class = UnitClass "player"
 
 if class == "DEMONHUNTER" then
   L.cfg.enable = true
