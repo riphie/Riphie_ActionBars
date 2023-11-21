@@ -15,7 +15,7 @@ L.cfg = {
     MultiBar6 = false,
     MultiBar7 = false,
     StanceBar = true,
-    PetActionBar = true,
+    PetActionBar = false,
   },
 }
 
@@ -29,11 +29,15 @@ if class == "EVOKER" then
   L.cfg.enable = true
 end
 
+if class == "ROGUE" then
+  L.cfg.enable = true
+end
+
 if class == "SHAMAN" then
   L.cfg.enable = true
 end
 
-if class == "ROGUE" then
+if class == "WARLOCK" then
   L.cfg.enable = true
 end
 
