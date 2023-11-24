@@ -1,7 +1,7 @@
 local A, L = ...
 
 L.cfg = {
-  enable = false,
+  enable = true,
 
   linkActionBars = false,
 
@@ -21,26 +21,26 @@ L.cfg = {
 
 local _, class = UnitClass "player"
 
-if class == "DEMONHUNTER" then
-  L.cfg.enable = true
+if class == "DEATHKNIGHT" then
+  L.cfg.enable = false
 end
 
-if class == "EVOKER" then
-  L.cfg.enable = true
+if class == "HUNTER" then
+  L.cfg.enable = false
 end
 
-if class == "ROGUE" then
-  L.cfg.enable = true
+if class == "MAGE" then
+  L.cfg.enable = false
 end
 
-if class == "SHAMAN" then
-  L.cfg.enable = true
+if class == "MONK" then
+  L.cfg.enable = false
 end
 
-if class == "WARLOCK" then
-  L.cfg.enable = true
+if class == "PALADIN" then
+  L.cfg.enable = false
 end
 
-if class == "WARRIOR" then
-  L.cfg.enable = true
+if class == "PRIEST" then
+  L.cfg.enable = false
 end
