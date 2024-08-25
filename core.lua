@@ -36,7 +36,7 @@ L.bypass = nil
 L.eventFrame = CreateFrame("Frame", A .. "EventFrame", UIParent)
 
 function L:CheckBypass(bar_name)
-  local dragonridingBypass = (L.dragonriding and bar_name == "MainMenuBar")
+  local dragonridingBypass = false -- (L.dragonriding and bar_name == "MainMenuBar")
   local adHocBypass = (L.bypass == bar_name)
 
   return not (dragonridingBypass or adHocBypass)

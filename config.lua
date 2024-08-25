@@ -21,7 +21,7 @@ L.cfg = {
 
 local _, class = UnitClass "player"
 
-if class == "DEATHKNIGHT" then
+if class == "EVOKER" then
   L.cfg.enable = false
 end
 
@@ -37,10 +37,10 @@ if class == "MONK" then
   L.cfg.enable = false
 end
 
-if class == "PALADIN" then
+if class == "PRIEST" then
   L.cfg.enable = false
 end
 
-if class == "PRIEST" then
+if class == "WARLOCK" then
   L.cfg.enable = false
 end
