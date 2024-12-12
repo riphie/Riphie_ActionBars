@@ -30,14 +30,16 @@ local button_names = {
 L.bars = {}
 L.buttons = {}
 
+L.dragonriding = false
 L.bypass = nil
 
 L.eventFrame = CreateFrame("Frame", A .. "EventFrame", UIParent)
 
 function L:CheckBypass(bar_name)
+  local dragonridingBypass = false -- (L.dragonriding and bar_name == "MainMenuBar")
   local adHocBypass = (L.bypass == bar_name)
 
-  return not adHocBypass
+  return not (dragonridingBypass or adHocBypass)
 end
 
 function L:ApplyOnBar(bar, bar_name)
@@ -151,6 +153,20 @@ function L:HideBars()
   end
 end
 
+function L:Dragonriding()
+  if not cfg.enable then
+    return
+  end
+
+  if IsMounted() and HasBonusActionBar() then
+    L.dragonriding = true
+    L.bars["MainMenuBar"]:SetAlpha(1)
+  elseif L.dragonriding then
+    L.dragonriding = false
+    L:ApplyOnBar(L.bars["MainMenuBar"], "MainMenuBar")
+  end
+end
+
 function L:GetFlyoutParent()
   if SpellFlyout:IsShown() then
     local parent = SpellFlyout:GetParent()
@@ -231,7 +247,6 @@ function L:OnEnable()
   QuickKeybindFrame:HookScript("OnShow", function()
     L:ShowBars()
   end)
-
   QuickKeybindFrame:HookScript("OnHide", function()
     L:HideBars()
   end)
@@ -241,7 +256,6 @@ function L:OnEnable()
       L:ShowBars()
     end)
   end)
-
   EditModeManagerFrame:HookScript("OnHide", function()
     C_Timer.After(0.05, function()
       L:HideBars()
@@ -251,12 +265,12 @@ function L:OnEnable()
   SpellFlyout:HookScript("OnShow", function()
     L:HandleFlyoutShow()
   end)
-
   SpellFlyout:HookScript("OnHide", function()
     L:HandleFlyoutHide()
   end)
 
   C_Timer.After(0.05, function()
+    L:Dragonriding()
     L:HookBars()
   end)
 end
@@ -268,6 +282,8 @@ L.eventFrame:SetScript("OnEvent", function(self, event, ...)
       L:OnInit()
       L:OnEnable()
     end
+  elseif event == "PLAYER_MOUNT_DISPLAY_CHANGED" then
+    L:Dragonriding()
   elseif event == "ACTIONBAR_SHOWGRID" then
     L:ShowBars()
   elseif event == "ACTIONBAR_HIDEGRID" then
