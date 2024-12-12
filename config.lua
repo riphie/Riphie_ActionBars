@@ -29,10 +29,6 @@ if class == "HUNTER" then
   L.cfg.enable = false
 end
 
-if class == "MAGE" then
-  L.cfg.enable = false
-end
-
 if class == "MONK" then
   L.cfg.enable = false
 end
