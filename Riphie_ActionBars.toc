@@ -2,6 +2,7 @@
 
 ## Title: Riphie ActionBars
 ## Author: Riphie
+## Category-enUS: Riphie
 ## IconTexture: Interface\AddOns\Riphie_ActionBars\media\monkey.tga
 
 config.lua
